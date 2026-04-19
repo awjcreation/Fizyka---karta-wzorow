@@ -143,8 +143,8 @@ const sections = [
   {"id": "drgania_fale_mechaniczne_i_swietlne", "title": "Drgania, fale mechaniczne i świetlne", "images": ["images/drgania_fale_mechaniczne_i_swietlne.png"]},
   {"id": "kinematyka", "title": "Kinematyka", "images": ["images/kinematyka.png"]},
   {"id": "dynamika", "title": "Dynamika", "images": ["images/dynamika.png"]},
-  {"id": "sily_tarcia_i_sila_sprezystosci", "title": "Siły tarcia i siła sprężystości", "images": ["images/sily_tarcia_i_sila sprezystosci.png"]},
-  {"id": "grawitacja_i_elementy_astronomii", "title": "Grawitacja i elementy astronomii", "images": ["images/grawitacja i elementy astronomii.png"]},
+  {"id": "sily_tarcia_i_sila_sprezystosci", "title": "Siły tarcia i siła sprężystości", "images": ["images/sily_tarcia_i_sila_sprezystosci.png"]},
+  {"id": "grawitacja_i_elementy_astronomii", "title": "Grawitacja i elementy astronomii", "images": ["images/grawitacja_i_elementy_astronomii.png"]},
   {"id": "hydrostatyka_aerostatyka", "title": "Hydrostatyka i aerostatyka", "images": ["images/hydrostatyka_aerostatyka.png"]},
   {"id": "termodynamika", "title": "Termodynamika", "images": ["images/termodynamika.png"]},
   {"id": "elektrostatyka", "title": "Elektrostatyka", "images": ["images/elektrostatyka.png"]},
@@ -154,11 +154,12 @@ const sections = [
   {"id": "elementy_mechaniki_relatywistycznej", "title": "Elementy mechaniki relatywistycznej", "images": ["images/elementy_mechaniki_relatywistycznej.png"]},
   {"id": "elementy_fizyki_atomowej_i_jadrowej", "title": "Elementy fizyki atomowej i jądrowej", "images": ["images/elementy_fizyki_atomowej_i_jadrowej.png"]},
   {"id": "wybrane_zaleznosci", "title": "Wybrane zależności", "images": ["images/wybrane_zaleznosci.png"]},
-  {"id": "podstawowe_jednostki_ukladu_si", "title": "Podstawowe jednostki układu SI", "images": ["images/podstawowe jednostki układu SI.png"]},
-  {"id": "przedrostki_jednostek_miar", "title": "Przedrostki jednostek miar", "images": ["images/przedrostki jednostek miar.png"]},
+  {"id": "podstawowe_jednostki_ukladu_si", "title": "Podstawowe jednostki układu SI", "images": ["images/podstawowe_jednostki_ukladu_si.png"]},
+  {"id": "przedrostki_jednostek_miar", "title": "Przedrostki jednostek miar", "images": ["images/przedrostki_jednostek_miar.png"]},
   {"id": "wartosci_wybranych_stalych_fizycznych", "title": "Wartości wybranych stałych fizycznych", "images": ["images/wartosci_wybranych_stalych_fizycznych.png"]},
   {"id": "wybrane_stale_i_parametry_astrofizyczne", "title": "Wybrane stałe i parametry astrofizyczne", "images": ["images/wybrane_stale_i_parametry_astrofizyczne.png"]},
   {"id": "wartosci_wybranych_jednostek_spoza_ukladu_si", "title": "Wartości wybranych jednostek spoza układu SI", "images": ["images/wartosci_wybranych_jednostek_spoza_ukladu_si.png"]}
+  {"id": "uklad_okresowy_pierwiastkow", "title": "Układ okresowy pierwiastków", "images": ["images/uklad_okresowy_pierwiastkow.png"]}
 ];
 const startScreen = document.getElementById('startScreen');
 const readerScreen = document.getElementById('readerScreen');
@@ -190,7 +191,8 @@ const searchKeywords = {
   przedrostki_jednostek_miar: ['przedrostki', 'mikro', 'mega', 'giga', 'nano', 'mili'],
   wartosci_wybranych_stalych_fizycznych: ['stałe fizyczne', 'stale fizyczne', 'stałe', 'stale', 'g', 'h', 'c'],
   wybrane_stale_i_parametry_astrofizyczne: ['astrofizyczne', 'astronomia', 'planety', 'słońce', 'slonce', 'kosmos'],
-  wartosci_wybranych_jednostek_spoza_ukladu_si: ['spoza układu si', 'spoza ukladu si', 'elektronowolt', 'ev', 'rok świetlny', 'rok swietlny']
+  wartosci_wybranych_jednostek_spoza_ukladu_si: ['spoza układu si', 'spoza ukladu si', 'elektronowolt', 'ev', 'rok świetlny', 'rok swietlny'],
+  uklad_okresowy_pierwiastkow: ['uklad', 'układ', 'okresowy', 'pierwiastow', 'pierwiastków', 'tablica']
 };
 
 function normalizeText(value) {

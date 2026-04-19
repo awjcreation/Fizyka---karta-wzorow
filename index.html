@@ -422,7 +422,7 @@ img { display:block; max-width:100%; height:auto; }
     <div class="wrap">
       <header class="start-header">
         <div class="title-row">
-          <h1 class="title">Maturalna karta wzorów - fizyka</h1>
+          <h1 class="title">Karta wzorów i wielkości fizycznych</h1>
           <button id="infoBtn" class="info-btn" type="button" aria-label="Informacje">i</button>
         </div>
 
@@ -644,7 +644,7 @@ function getFilteredSections(query) {
 function updateSearchMeta(query, count) {
   const normalizedQuery = normalizeText(query);
   if (!normalizedQuery) {
-    searchMeta.textContent = 'Wpisz nazwę działu lub temat.';
+    searchMeta.textContent = 'Wpisz poniżej nazwę działu lub temat';
     return;
   }
   if (count === 0) {
@@ -657,7 +657,7 @@ function updateSearchMeta(query, count) {
 function updateReaderSearchMeta(query, count) {
   const normalizedQuery = normalizeText(query);
   if (!normalizedQuery) {
-    readerSearchMeta.textContent = 'Wpisz nazwę działu lub temat.';
+    readerSearchMeta.textContent = 'Wpisz poniżej nazwę działu lub temat';
     return;
   }
   if (count === 0) {

@@ -102,6 +102,25 @@ img { display:block; max-width:100%; height:auto; }
   font-size: 1.2rem;
   cursor: pointer;
 }
+
+ .license-note {
+    margin: 2rem 0;
+    padding: 1rem 1.25rem;
+    border: 1px solid #d7dce5;
+    border-radius: 12px;
+    background: #f7f9fc;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .license-note h2 {
+    margin-top: 0;
+    font-size: 1.1rem;
+  }
+
+  .license-note p:last-child {
+    margin-bottom: 0;
+  } 
 .search-wrap { margin-top:18px; }
 .search-label { display:block; margin-bottom:8px; font-size:.92rem; font-weight:650; color:var(--text); }
 .search-input-wrap { position:relative; }
@@ -228,7 +247,6 @@ img { display:block; max-width:100%; height:auto; }
       </div>
      
       <nav id="sectionList" class="section-list" aria-label="Lista działów"></nav>
-      <p class="license">Opracowanie edukacyjne na podstawie materiałów egzaminacyjnych CKE. <br>Aplikacja nie jest oficjalnym materiałem CKE.</p>
     </div>
   </main>
 
@@ -256,7 +274,6 @@ img { display:block; max-width:100%; height:auto; }
 <div id="infoModal" class="modal hidden">
   <div class="modal-content">
     <button id="closeModal" class="modal-close">✕</button>
-    <h2>Informacja o zakresie zestawu</h2>
     <section class="license-note" aria-labelledby="license-note-title">
   <h2 id="license-note-title">Informacja o opracowaniu</h2>
 

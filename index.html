@@ -37,49 +37,70 @@ img { display:block; max-width:100%; height:auto; }
 .start-header { padding:6px 0 10px; }
 .title { margin:0; font-size:clamp(1.7rem,4.5vw,2.35rem); line-height:1.05; letter-spacing:-.03em; }
 .subtitle { margin:10px 0 0; color:var(--muted); font-size:.98rem; line-height:1.5; }
-.info-box {
-  margin-top: 18px;
-  border: 1px solid var(--line);
-  border-radius: 16px;
-  background: var(--surface);
-  box-shadow: var(--shadow);
-  overflow: hidden;
+
+.title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.info-box summary {
+.info-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+  background: #3b82f6;
+  color: white;
+  font-weight: 700;
+  font-size: 0.9rem;
   cursor: pointer;
-  padding: 14px 16px;
-  font-weight: 650;
-  font-size: 0.95rem;
-  list-style: none;
-  position: relative;
+  display: grid;
+  place-items: center;
+  box-shadow: var(--shadow);
 }
 
-.info-box summary::-webkit-details-marker {
+/* MODAL */
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: grid;
+  place-items: center;
+  z-index: 2000;
+}
+
+.modal.hidden {
   display: none;
 }
 
-/* strzałka */
-.info-box summary::after {
-  content: "▾";
-  position: absolute;
-  right: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 0.9rem;
-  color: var(--muted);
-  transition: transform 0.2s ease;
+.modal-content {
+  width: min(90vw, 500px);
+  background: white;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.2);
+  position: relative;
 }
 
-.info-box[open] summary::after {
-  transform: translateY(-50%) rotate(180deg);
+.modal-content h2 {
+  margin-top: 0;
+  font-size: 1.2rem;
 }
 
-.info-content {
-  padding: 0 16px 16px;
+.modal-content p {
   color: var(--muted);
-  font-size: 0.92rem;
   line-height: 1.5;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: transparent;
+  font-size: 1.2rem;
+  cursor: pointer;
 }
 .search-wrap { margin-top:18px; }
 .search-label { display:block; margin-bottom:8px; font-size:.92rem; font-weight:650; color:var(--text); }
@@ -190,18 +211,10 @@ img { display:block; max-width:100%; height:auto; }
   <main id="startScreen" class="start-screen">
     <div class="wrap">
       <header class="start-header">
-        <h1 class="title">Maturalna karta wzorów - fizyka</h1>
-       <details class="info-box">
-  <summary>Informacja o zakresie zestawu</summary>
-  <div class="info-content">
-    W poniższym zestawie przedstawiono wybrane wzory oraz stałe fizyczne.
-    Przy każdym wzorze zapisano nazwę wielkości lub prawa albo zjawiska,
-    którego wzór dotyczy. Symboli wszystkich wielkości występujących we
-    wzorach nie opisano – przyjęto dla nich powszechnie używane oznaczenia.
-    Podobnie nie opisano warunków i zakresów stosowalności przedstawionych
-    wzorów. Wartości wielkości wektorowych zapisano bez symbolu wektora.
-  </div>
-</details>  
+       <div class="title-row">
+  <h1 class="title">Maturalna karta wzorów - fizyka</h1>
+  <button id="infoBtn" class="info-btn" aria-label="Informacje">i</button>
+</div>
         <p class="subtitle">Wybierz dział, od którego chcesz zacząć lub wyszukaj temat.</p>
       </header>
 
@@ -240,7 +253,20 @@ img { display:block; max-width:100%; height:auto; }
     <div id="readerContent" class="reader-content"></div>
   </section>
 </div>
-
+<div id="infoModal" class="modal hidden">
+  <div class="modal-content">
+    <button id="closeModal" class="modal-close">✕</button>
+    <h2>Informacja o zakresie zestawu</h2>
+    <p>
+      W poniższym zestawie przedstawiono wybrane wzory oraz stałe fizyczne.
+      Przy każdym wzorze zapisano nazwę wielkości lub prawa albo zjawiska,
+      którego wzór dotyczy. Symboli wszystkich wielkości występujących we
+      wzorach nie opisano – przyjęto dla nich powszechnie używane oznaczenia.
+      Podobnie nie opisano warunków i zakresów stosowalności przedstawionych
+      wzorów. Wartości wielkości wektorowych zapisano bez symbolu wektora.
+    </p>
+  </div>
+</div>
 <script>
 const sections = [
   {"id": "kinematyka", "title": "Kinematyka", "images": ["images/kinematyka.png"]},

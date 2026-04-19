@@ -131,37 +131,15 @@ img { display:block; max-width:100%; height:auto; }
   border:1px solid var(--line);
   background:var(--surface);
   color:var(--text);
-  border-radius:16px;
+  border-radius:18px;
   padding:14px 46px 14px 16px;
   font-size:1rem;
   box-shadow:var(--shadow);
   outline:none;
+  min-height:52px;
 }
 .search-input::placeholder { color:var(--muted); }
 .search-input:focus { border-color:var(--accent-2); box-shadow:0 0 0 4px rgba(168,85,247,.12), var(--shadow); }
-
-.back-btn,
-.search-input {
-  min-height:52px;
-  border-radius:18px;
-}
-
-.reader-search-wrap .search-input-wrap::before {
-  content:"⌕";
-  position:absolute;
-  left:14px;
-  top:50%;
-  transform:translateY(-50%);
-  color:var(--muted);
-  font-size:1rem;
-  line-height:1;
-  pointer-events:none;
-  z-index:1;
-}
-
-.reader-search-wrap .search-input {
-  padding-left:42px;
-}
 .clear-search {
   position:absolute;
   right:10px;
@@ -296,16 +274,46 @@ img { display:block; max-width:100%; height:auto; }
   display:grid;
   gap:8px;
 }
-.reader-search-label {
-  font-size:.9rem;
-  font-weight:650;
-  color:var(--text);
+.reader-search-header {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  width:100%;
 }
-.reader-search-meta {
+.reader-search-header .reader-search-label {
+  margin:0;
+  font-size:.82rem;
+  font-weight:700;
+  letter-spacing:.02em;
+  text-transform:uppercase;
   color:var(--muted);
-  font-size:.88rem;
-  line-height:1.35;
-  min-height:1.35em;
+  white-space:nowrap;
+}
+.reader-search-header .reader-search-meta {
+  margin:0;
+  color:var(--muted);
+  font-size:.82rem;
+  line-height:1;
+  text-align:right;
+  white-space:nowrap;
+  min-height:auto;
+}
+
+.reader-search-wrap .search-input-wrap::before {
+  content:"⌕";
+  position:absolute;
+  left:14px;
+  top:50%;
+  transform:translateY(-50%);
+  color:var(--muted);
+  font-size:1rem;
+  line-height:1;
+  pointer-events:none;
+  z-index:1;
+}
+.reader-search-wrap .search-input {
+  padding-left:42px;
 }
 
 .reader-content {
@@ -385,6 +393,10 @@ img { display:block; max-width:100%; height:auto; }
   .reader-label {
     font-size:.88rem;
   }
+
+  .reader-search-header .reader-search-meta {
+    font-size:.78rem;
+  }
 }
 
 @media (min-width: 760px) {
@@ -448,15 +460,18 @@ img { display:block; max-width:100%; height:auto; }
             </svg>
             Spis działów
           </button>
+          <div class="reader-label">Przegląd wszystkich działów</div>
         </div>
 
         <div class="reader-search-wrap">
-          <label class="reader-search-label" for="readerSearch">Szybkie wyszukiwanie</label>
+          <div class="reader-search-header">
+            <label class="reader-search-label" for="readerSearch">Szybkie wyszukiwanie</label>
+            <div id="readerSearchMeta" class="reader-search-meta" aria-live="polite"></div>
+          </div>
           <div class="search-input-wrap">
             <input id="readerSearch" class="search-input" type="search" inputmode="search" autocomplete="off" spellcheck="false" placeholder="Np. magnetyzm, jednostki, astronomia, SI">
-            <button id="clearReaderSearch" class="clear-search hidden" type="button" aria-label="Wyczyść wyszukiwanie w działach">✕</button></div>
-          <div id="readerSearchMeta" class="reader-search-meta" aria-live="polite"></div>
-          
+            <button id="clearReaderSearch" class="clear-search hidden" type="button" aria-label="Wyczyść wyszukiwanie w działach">✕</button>
+          </div>
         </div>
       </div>
     </div>
@@ -628,8 +643,6 @@ function getFilteredSections(query) {
 }
 
 function updateSearchMeta(query, count) {
-  if (!searchMeta) return;
-
   const normalizedQuery = normalizeText(query);
   if (!normalizedQuery) {
     searchMeta.textContent = 'Wpisz nazwę działu lub temat.';
@@ -643,8 +656,6 @@ function updateSearchMeta(query, count) {
 }
 
 function updateReaderSearchMeta(query, count) {
-  if (!readerSearchMeta) return;
-
   const normalizedQuery = normalizeText(query);
   if (!normalizedQuery) {
     readerSearchMeta.textContent = 'Wpisz nazwę działu lub temat.';
@@ -659,7 +670,6 @@ function updateReaderSearchMeta(query, count) {
 
 function renderStartList(query = '') {
   const filtered = getFilteredSections(query);
-
   sectionList.innerHTML = filtered.length
     ? filtered.map(section => `
         <button class="section-link" type="button" data-target="${section.id}">${section.title}</button>

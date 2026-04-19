@@ -146,12 +146,19 @@ function openReader(targetId) {
   requestAnimationFrame(() => {
     const target = document.getElementById(lastTargetId);
 
-    if (target) {
-      target.scrollIntoView({ behavior: 'auto', block: 'start' });
-      target.focus({ preventScroll: true });
-    } else {
-      window.scrollTo({ top: 0, behavior: 'auto' });
-    }
+if (target) {
+  const header = document.querySelector('.reader-top');
+  const headerHeight = header ? header.offsetHeight : 0;
+
+  const y = target.getBoundingClientRect().top + window.pageYOffset;
+
+  window.scrollTo({
+    top: y - headerHeight - 10,
+    behavior: 'auto'
+  });
+
+  target.focus({ preventScroll: true });
+}
   });
 }
 

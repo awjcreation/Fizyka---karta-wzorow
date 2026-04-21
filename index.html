@@ -29,7 +29,7 @@
 
         <div class="search-wrap unified">
           <div class="search-input-wrap unified">
-            <input id="sectionSearch" class="search-input" type="search" inputmode="search" autocomplete="off" spellcheck="false" placeholder="Np. magnetyzm, jednostki, astro...">
+            <input id="sectionSearch" class="search-input" type="search" inputmode="search" autocomplete="off" spellcheck="false" placeholder="wpisz wyszukiwan">
             <button id="clearSearch" class="clear-search hidden" type="button" aria-label="Wyczyść wyszukiwanie">✕</button>
           </div>
           <div id="searchMeta" class="search-meta" aria-live="polite"></div>
@@ -46,7 +46,7 @@
         <div class="reader-top-row">
           <button id="backBtn" class="back-btn compact" type="button" aria-label="Powrót do listy działów">
             <span class="back-arrow" aria-hidden="true">←</span>
-            <span>Fizyka - karta wzorów</span>
+            <span>Lista działów</span>
           </button>
         </div>
 
@@ -305,7 +305,7 @@ function getSectionSubtitle(id) {
 function updateSearchMeta(query, count) {
   const normalizedQuery = normalizeText(query);
   if (!normalizedQuery) {
-    searchMeta.textContent = 'Wpisz poniżej nazwę działu lub temat';
+    searchMeta.textContent = ' ';
     return;
   }
   if (count === 0) {

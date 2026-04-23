@@ -238,7 +238,10 @@ img {
   display:grid;
   place-items:center;
 }
+.icon-close { opacity: 0; }
 
+.search-toggle.active .icon-search { opacity: 0; }
+.search-toggle.active .icon-close { opacity: 1; }
 .clear-search.hidden { display:none !important; }
 
 .search-meta {

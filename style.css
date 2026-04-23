@@ -68,61 +68,77 @@ img {
 
 .title-row {
   display:flex;
-  align-items:center;
+  align-items:flex-start;
   gap:10px;
 }
 
 .start-top-row {
-  justify-content:space-between;
+  justify-content:flex-start;
+}
+
+.start-top-row .title {
+  flex:1 1 auto;
+  min-width:0;
+}
+
+.info-btn,
+.install-btn {
+  flex:0 0 auto;
+  border:none;
+  background:#1d4ed8;
+  color:#fff;
+  font-weight:700;
+  cursor:pointer;
+  box-shadow:var(--shadow-soft);
+  transition:transform .1s ease, opacity .2s ease;
 }
 
 .info-btn {
   width:clamp(30px, 6vw, 40px);
   height:clamp(30px, 6vw, 40px);
   font-size:clamp(1rem, 3vw, 1.3rem);
-  margin-left:auto;
-  flex:0 0 auto;
+  margin-left:0;
   border-radius:50%;
-  border:none;
-  background:#1d4ed8;
-  color:#fff;
-  font-weight:700;
-  cursor:pointer;
   display:grid;
   place-items:center;
-  box-shadow:var(--shadow-soft);
 }
 
 .info-btn:focus-visible,
 .clear-search:focus-visible,
 .modal-close:focus-visible,
-.search-toggle:focus-visible {
+.search-toggle:focus-visible,
+.install-btn:focus-visible {
   outline:none;
   box-shadow:0 0 0 4px rgba(29,78,216,.16);
 }
-/* 🔹 przycisk instalacji – styl jak info-btn, ale subtelniejszy */
+
 .install-btn {
-  width:clamp(30px, 6vw, 40px);
-  height:clamp(30px, 6vw, 40px);
-  border-radius:50%;
-  border:none;
+  margin-left:auto;
+  min-height:clamp(30px, 6vw, 40px);
+  padding:6px 10px;
+  border-radius:999px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:6px;
+  font-size:0.9rem;
+  line-height:1;
+  background:#1e3a8a;
+}
 
-  background:#1e3a8a; /* 🔥 ten sam ciemny niebieski */
-  color:#fff;
-
-  font-size:clamp(1rem, 3vw, 1.2rem);
-  font-weight:700;
-
-  display:grid;
-  place-items:center;
-
-  cursor:pointer;
-  box-shadow:var(--shadow-soft);
-  transition:transform .1s ease, opacity .2s ease;
+.install-btn::after {
+  content:"Zainstaluj";
+  font-size:0.9rem;
+  font-weight:600;
+  line-height:1;
 }
 
 .install-btn:hover {
-  transform:scale(1.05);
+  transform:scale(1.03);
+}
+
+.install-btn:active {
+  transform:scale(0.96);
 }
 
 .install-btn.hidden {
@@ -593,6 +609,21 @@ img {
 }
 .menu-icon {
   color: var(--accent);
+}
+
+
+@media (max-width: 420px) {
+  .install-btn {
+    width:36px;
+    height:36px;
+    min-height:36px;
+    padding:0;
+    border-radius:50%;
+  }
+
+  .install-btn::after {
+    content:"";
+  }
 }
 
 @media (max-width: 640px) {

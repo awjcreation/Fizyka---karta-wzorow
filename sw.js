@@ -1,4 +1,3 @@
-
 const CACHE_NAME = 'karta-wzorow-v1';
 
 const ASSETS = [
@@ -9,6 +8,7 @@ const ASSETS = [
   './icons/icon-192.png',
   './icons/icon-512.png',
   './splash.jpg',
+
   './images/kinematyka.png',
   './images/dynamika.png',
   './images/sily_tarcia_i_sila_sprezystosci.png',

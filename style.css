@@ -211,7 +211,7 @@ img {
 
 .search-input:focus {
   border-color:var(--accent-2);
-  box-shadow:0 0 0 4px rgba(29,78,216,.12);
+  box-shadow:none;
   background:#fff;
 }
 

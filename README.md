@@ -21,7 +21,7 @@ Materiał nie stanowi oficjalnego dokumentu CKE i ma charakter pomocniczy.
 
 ## 🚀 Demo
 
-👉 Demo (GitHub Pages): w przygotowaniu
+👉 Demo (GitHub Pages): 👉 https://awjcreation.github.io/Fizyka_karta-wzorow/
 
 ---
 
